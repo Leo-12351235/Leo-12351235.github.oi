@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo的个人工具库 | 安全爱好者</title>
+    <style>
+        /* 全局基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent; /* 消除移动端点击高亮 */
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1c28 0%, #2a2d3e 100%);
+            color: #e0e0e0;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 头部区域 */
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: #4a90e2;
+            border-radius: 2px;
+        }
+
+        /* 欢迎标语 */
+        .slogan {
+            font-size: 1.1rem;
+            color: #a0a0a0;
+            margin-top: 0.5rem;
+        }
+
+        /* 资源分类容器 */
+        .resource-container {
+            width: 100%;
+            max-width: 800px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .resource-container {
+                grid-template-columns: repeat(2, 1fr); /* 平板及以上双列 */
+            }
+        }
+
+        /* 单个资源盒子 */
+        .resource-box {
+            background: rgba(30, 33, 48, 0.6);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .resource-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background: rgba(35, 38, 55, 0.7);
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #4a90e2;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .category-title::before {
+            content: '▸';
+            color: #4a90e2;
+            font-size: 0.9em;
+        }
+
+        /* 工具链接列表 */
+        .tool-links {
+            list-style: none;
+        }
+
+        .tool-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .tool-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+            display: block;
+            padding: 0.3rem 0;
+            position: relative;
+        }
+
+        .tool-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #4a90e2;
+            transition: width 0.3s ease;
+        }
+
+        .tool-links a:hover {
+            color: #ffffff;
+        }
+
+        .tool-links a:hover::after {
+            width: 100%;
+        }
+
+        /* 页脚 */
+        .footer {
+            margin-top: 3rem;
+            color: #666;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+            width: 100%;
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            
+            .avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .resource-box {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="appIcon.png" alt="个人头像" class="avatar">
+        <h1>Leo的安全工具库</h1>
+        <p class="slogan">专注渗透测试 · 持续更新优质资源</p>
+    </div>
+
+    <main class="resource-container">
+        <!-- 漏洞扫描与利用 -->
+        <div class="resource-box">
+            <h2 class="category-title">漏洞扫描与利用</h2>
+            <ul class="tool-links">
+                <li><a href="https://github.com/swisskyrepo/SSRFmap" target="_blank" rel="noopener">SSRFmap - 强大的SSRF利用工具</a></li>
+            </ul>
+        </div>
+
+        <!-- 测压工具 -->
+        <div class="resource-box">
+            <h2 class="category-title">压力测试工具</h2>
+            <ul class="tool-links">
+                <li><a href="https://github.com/foreni-packages/t50" target="_blank" rel="noopener">t50 - 多协议DDoS/CC攻击工具</a></li>
+            </ul>
+        </div>
+
+        <!-- 综合工具箱 -->
+        <div class="resource-box">
+            <h2 class="category-title">综合工具箱</h2>
+            <ul class="tool-links">
+                <li><a href="https://github.com/kkbo8005/mitan" target="_blank" rel="noopener">密探(MITAN) - 全能渗透测试工具</a></li>
+            </ul>
+        </div>
+
+        <!-- SQL注入工具 -->
+        <div class="resource-box">
+            <h2 class="category-title">SQL注入工具</h2>
+            <ul class="tool-links">
+                <li><a href="https://github.com/co01cat/SqlmapXPlus" target="_blank" rel="noopener">SqlmapX Plus - 增强版SQL注入工具</a></li>
+            </ul>
+        </div>
+
+        <!-- 内网工具 -->
+        <div class="resource-box">
+            <h2 class="category-title">内网渗透工具</h2>
+            <ul class="tool-links">
+                <li><a href="https://github.com/shadow1ng/fscan" target="_blank" rel="noopener">fscan - 轻量级内网横向扫描工具</a></li>
+                <li><a href="https://github.com/eeeeeeeeee-code/e0e1-config/tree/main" target="_blank" rel="noopener">E0E1配置库 - 后渗透阶段神器</a></li>
+                <li><a href="https://github.com/carlospolop/PEASS-ng" target="_blank" rel="noopener">PEASS-ng - 全系统提权工具集</a></li>
+                <li><a href="https://github.com/FalconOpsLLC/goexec" target="_blank" rel="noopener">GoExec - Windows横向移动工具</a></li>
+                <li><a href="https://github.com/DeEpinGh0st/MDUT-Extend-Release" target="_blank" rel="noopener">MDUT-Extend - 数据库提权工具扩展版</a></li>
+            </ul>
+        </div>
+
+        <!-- 安卓模拟器 -->
+        <div class="resource-box">
+            <h2 class="category-title">安卓/Windows模拟器</h2>
+            <ul class="tool-links">
+                <li><a href="https://pan.quark.cn/s/31caf018fba9" target="_blank" rel="noopener">Winlator - 安卓版Windows模拟器</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Leo的安全工具库 | 本页面仅用于学习交流，所有工具版权归原作者所有</p>
+    </footer>
+</body>
+</html>
